@@ -1,0 +1,26 @@
+<h2>My Profile</h2>
+
+<div>
+  <div *ngIf='animals.length === 0'>
+    No animals
+  </div>
+
+  <div *ngFor='let animal of animals'  class='overview-card'>
+    <img
+      class='img'
+      [src]='animal.image'
+      *ngIf='animal.image'
+      [appBoxShadow]
+    />
+    <div>Name: {{animal.name}}</div>
+    <hr />
+    <div>Type: {{animal.type}}</div>
+    <hr />
+    <div>Created on: {{animal.createdOn | date:"dd/MM/yyyy"}}</div>
+    <hr />
+    <a routerLink='/animals/details/{{animal["id"]}}'>View More</a>
+    <hr />
+
+    <button (click)='delete(animal.id)'>Delete</button>
+  </div>
+</div>

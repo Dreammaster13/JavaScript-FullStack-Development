@@ -1,0 +1,73 @@
+<div class='details-card' *ngIf='animal'>
+  <img
+    class='img'
+    [src]='animal.image'
+    *ngIf='animal.image'
+    [appBoxShadow]
+  />
+
+  <div>Name: {{animal.name}}</div>
+  <hr />
+  <div>Age: {{animal.age}}</div>
+  <hr />
+  <div>Color: {{animal.color}}</div>
+  <hr />
+  <div>Type: {{animal.type}}</div>
+  <hr />
+  <div>Price: {{animal.price}}</div>
+  <hr />
+  <div>Created on: {{animal.createdOn | date:"dd/MM/yyyy"}}</div>
+  <hr />
+
+  <div *ngIf='animal.breed'>
+    Breed: {{animal.breed}}
+    <hr />
+  </div>
+
+  <div *ngIf='animal.reactions'>
+    <div *ngFor='let type of reactionsType'>
+      <span class='react-display' *ngIf='animal.reactions[type]'>{{type}} : {{animal.reactions[type]}}</span>
+    </div>
+  </div>
+
+  <div>
+    <form #reactForm='ngForm' (submit)='react()'>
+      <label for='reaction'>React on this!</label>
+      <select
+        id='reaction'
+        name='reaction'
+        [(ngModel)]='newReaction'
+        #reaction='ngModel'
+        required>
+        <option *ngFor='let type of reactionsType' [value]='type'>
+          {{type}}
+        </option>
+      </select>
+      <button type='submit' [disabled]='!reactForm.form.valid'>React</button>
+    </form>
+    <hr />
+  </div>
+
+  <div *ngFor='let comment of comments'>
+    <span class='comment-message'>Comment: {{comment.message}}</span>
+    &nbsp;&nbsp;&nbsp;
+    <span class='comment-user'>from user: {{comment.user}}</span>
+    <hr />
+  </div>
+
+  <div>
+    <form #commentForm='ngForm' (submit)='commentThis()'>
+      <label for='comment'>Comment this: </label>
+      <input
+        #comment='ngModel'
+        [(ngModel)]='newComment'
+        type='text'
+        id='comment'
+        name='comment'
+        placeholder='Comment'
+        required />
+      <button type='submit' [disabled]='!commentForm.form.valid'>Comment</button>
+    </form>
+    <hr />
+  </div>
+</div>

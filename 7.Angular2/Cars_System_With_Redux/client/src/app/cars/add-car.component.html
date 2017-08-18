@@ -1,0 +1,109 @@
+<h2>Add Car</h2>
+<form #addCarForm='ngForm' (submit)='addCar()'>
+
+  <div class='form-group'>
+    <label for='make'>Make</label>
+    <input
+      #make='ngModel'
+      [(ngModel)]='car.make'
+      type='text'
+      id='make'
+      name='make'
+      placeholder='Make'
+      required />
+  </div>
+  <span [hidden]='make.valid || make.pristine'>
+      Make is required!
+  </span>
+
+  <div class='form-group'>
+    <label for='model'>Model</label>
+    <input
+      #model='ngModel'
+      [(ngModel)]='car.model'
+      type='text'
+      id='model'
+      name='model'
+      placeholder='Model'
+      required />
+  </div>
+  <span [hidden]='model.valid || model.pristine'>
+      Model is required!
+  </span>
+
+  <div class='form-group'>
+    <label for='year'>Year</label>
+    <input
+      #year='ngModel'
+      [(ngModel)]='car.year'
+      type='number'
+      min='1950'
+      max='2017'
+      id='year'
+      name='yerar'
+      placeholder='Year'
+      required />
+  </div>
+  <span [hidden]='year.valid || year.pristine'>
+      Year is required!
+  </span>
+
+  <div class='form-group'>
+    <label for='engine'>Engine</label>
+    <input
+      #engine='ngModel'
+      [(ngModel)]='car.engine'
+      type='text'
+      id='engine'
+      name='engine'
+      placeholder='Engine'
+      required />
+  </div>
+  <span [hidden]='engine.valid || engine.pristine'>
+      Engine is required!
+  </span>
+
+  <div class='form-group'>
+    <label for='price'>Price</label>
+    <input
+      #price='ngModel'
+      [(ngModel)]='car.price'
+      type='number'
+      id='price'
+      name='price'
+      placeholder='Price'
+      required />
+  </div>
+  <span [hidden]='price.valid || price.pristine'>
+      Price is required!
+  </span>
+
+  <div class='form-group'>
+    <label for='image'>Image</label>
+    <input
+      #image='ngModel'
+      [(ngModel)]='car.image'
+      type='url'
+      id='image'
+      name='image'
+      placeholder='Image'
+      required />
+  </div>
+  <span [hidden]='image.valid || image.pristine'>
+      Image is required!
+  </span>
+
+  <div class='form-group'>
+    <label for='milleage'>Milleage</label>
+    <input
+      #milleage='ngModel'
+      [(ngModel)]='car.milleage'
+      type='number'
+      min='0'
+      id='milleage'
+      name='milleage'
+      placeholder='Milleage' />
+  </div>
+
+  <button [disabled]='!addCarForm.form.valid' type='submit'>Add Car</button>
+</form>

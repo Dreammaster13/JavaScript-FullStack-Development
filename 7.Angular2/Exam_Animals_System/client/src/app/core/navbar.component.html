@@ -1,0 +1,24 @@
+<div>
+  <span>
+    <a routerLink='/'>Home</a>
+    &nbsp;
+    <a routerLink='/animals/all'>All Animals</a>
+  </span>
+  &nbsp;&nbsp;&nbsp;
+
+  <span *ngIf='authenticated'>
+    <a routerLink='/animals/add'>Add Animal</a>
+    &nbsp;&nbsp;&nbsp;
+    <small>hello</small>
+    <a routerLink='/users/profile'>{{username}}</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href='javascript:void(0)' (click)='logout()'>Logout</a>
+  </span>
+  &nbsp;&nbsp;&nbsp;
+
+  <span *ngIf='!authenticated'>
+    <a routerLink='/users/register'>Register</a>
+    &nbsp;&nbsp;&nbsp;
+    <a routerLink='/users/login'>Login</a>
+  </span>
+</div>

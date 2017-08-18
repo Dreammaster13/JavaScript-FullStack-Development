@@ -1,0 +1,49 @@
+<h2>Car Details</h2>
+<button (click)='like()'>Like this car</button>
+<div *ngIf='car'>
+  {{car.make}} {{car.model}}
+  <br />
+  {{car.year}} {{car.price}}
+  <br />
+  Likes - {{car.likes}}
+</div>
+
+<div>
+  <form #reviewForm='ngForm' (submit)='submitReview()'>
+    <div class='form-group'>
+      <label for='rating'>Rating</label>
+      <select
+        id='rating'
+        name='rating'
+        [(ngModel)]='review.rating'
+        #rating='ngModel'>
+        <option *ngFor='let number of [1,2,3,4,5]' [value]='number'>{{number}}</option>
+      </select>
+    </div>
+
+    <div class='form-group'>
+      <label for='comment'>Comment</label>
+      <textarea
+        id='comment'
+        name='comment'
+        [(ngModel)]='review.comment'
+        #comment='ngModel'>
+      </textarea>
+    </div>
+
+    <button
+      type='submit'
+      [disabled]='!reviewForm.form.valid'>
+      Submit
+    </button>
+  </form>
+
+<div>
+  <div *ngFor='let review of reviews'>
+    {{review.rating}}
+    <span *ngIf='review.comment'>
+      {{review.comment}}
+    </span>
+  </div>
+</div>
+</div>

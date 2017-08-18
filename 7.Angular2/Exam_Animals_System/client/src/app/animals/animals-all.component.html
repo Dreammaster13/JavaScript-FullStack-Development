@@ -1,0 +1,41 @@
+<h2>All Animals</h2>
+
+<div class='sort-control'  *ngIf='animals.length !== 0'>
+  <button (click)='sortByDateAsc()'>Sort by date ascending</button>
+  <button (click)='sortByDateDesc()'>Sort by date descending</button>
+  <button (click)='sortByTypeAsc()'>Sort by type ascending</button>
+  <button (click)='sortByTypeDesc()'>Sort by type descending</button>
+</div>
+
+<div class='search-field' *ngIf='animals.length !== 0'>
+  <input type='text' [(ngModel)]='searchText' name='searchText' />
+  <button (click)='search()'>Search</button>
+</div>
+
+<div>
+  <div *ngIf='animals.length === 0'>
+    No animals
+  </div>
+
+  <div *ngFor='let animal of animals'  class='overview-card'>
+    <img
+      class='img'
+      [src]='animal.image'
+      *ngIf='animal.image'
+      [appBoxShadow]
+    />
+    <div>Name: {{animal.name}}</div>
+    <hr />
+    <div>Type: {{animal.type}}</div>
+    <hr />
+    <div>Created on: {{animal.createdOn | date:"dd/MM/yyyy"}}</div>
+    <hr />
+    <a routerLink='/animals/details/{{animal["id"]}}'>View More</a>
+    <hr />
+  </div>
+
+  <div  *ngIf='animals.length !== 0'>
+    <button [disabled]='page === 1' (click)='prevPage()'>Prev</button>
+    <button [disabled]='animals.length === 0 || animals.length < 10' (click)='nextPage()'>Next</button>
+  </div>
+</div>

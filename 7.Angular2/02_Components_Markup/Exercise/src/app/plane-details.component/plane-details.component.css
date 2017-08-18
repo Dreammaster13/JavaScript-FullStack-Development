@@ -1,0 +1,26 @@
+.description-block {
+  width: 60%;
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  border: solid 2px chocolate;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 40px;
+}
+
+.plane-img-container {
+  text-align: center;
+}
+
+.plane-img {
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.click-span {
+  display: inline-block;
+  color: blue;
+  margin: 15px;
+  cursor: pointer;
+}

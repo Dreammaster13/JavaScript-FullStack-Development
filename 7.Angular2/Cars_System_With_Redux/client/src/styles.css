@@ -1,0 +1,12 @@
+.item-container {
+  border: solid red 2px;
+  width: 70%;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.item-container img {
+  float: left;
+}

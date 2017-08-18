@@ -1,0 +1,41 @@
+<div class='car-id-card'>
+  <img class='img' [src]='car.image' [appBoxShadow] />
+  <div>Make: {{car.make}}</div>
+  <hr />
+  <div>Model: {{car.model}}</div>
+  <hr />
+  <div>Year: {{car.year}}</div>
+  <hr />
+  <div>Engine: {{car.engine | litres}}</div>
+  <hr />
+  <div>Owner: {{car.owner}}</div>
+  <hr />
+  <div>Created on: {{car.createdOn | date:"dd/MM/yyyy"}}</div>
+  <hr />
+  <a routerLink='/cars/edit/{{car.id}}'>Edit Car</a>
+  <hr />
+  <p>Comments:</p>
+  <div class='comments-block' *ngIf='car.comments.length > 0'>
+    <p *ngFor='let comment of car.comments'>
+      {{comment}}
+    </p>
+  </div>
+  <div *ngIf='car.comments.length < 1'> 0</div>
+
+  <div class='car-id-form'>
+    <form #commentAddForm='ngForm' (ngSubmit)='commentCar()'>
+      <input
+        #comment
+        [(ngModel)]='newComment'
+        name='newComment'
+        id='newComment'
+        placeholder='Type your comment here'
+        type='text'
+        required />
+
+      <button type='submit'>Comment Car</button>
+    </form>
+  </div>
+
+  <!--<button #carId (click)='commentCar(carId.value)' value='{{car.id}}'>Comment Car</button> to pass id trough button-->
+</div>

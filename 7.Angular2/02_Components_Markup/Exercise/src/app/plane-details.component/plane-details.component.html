@@ -1,0 +1,20 @@
+<div class='description-block' [style.color]='fontColor' [style.background-color]='bckgrColor'>
+  <span class='click-span' (click)='decreaseFontSize()'>decrease font size</span>
+  <span class='click-span' (click)='increaseFontSize()'>increase font size</span>
+
+  <div class='description-text' [style.font-size.px]='fontSize'>
+    {{_description}}
+    <span [style.color]='"red"' [style.cursor]='"pointer"' (click)='showMore()' *ngIf='!isDescriptionTotal'>show more</span>
+  </div>
+
+  <div class='plane-img-container'>
+    <img class='plane-img' src='{{image}}' *ngIf='isShowImage' />
+    <span class='click-span' (click)='showImage()' *ngIf='isDisplayViewPlane'>click to view plane photo</span>
+    <span class='click-span' (click)='hideImage()' *ngIf='!isDisplayViewPlane' [style.display]='block'>click to hide plane photo</span>
+  </div>
+
+  <div>
+    <span class='click-span' (click)='changeTextColor()'>change text color</span>
+    <span class='click-span' (click)='changeBckgrColor()'>change background color</span>
+  </div>
+</div>

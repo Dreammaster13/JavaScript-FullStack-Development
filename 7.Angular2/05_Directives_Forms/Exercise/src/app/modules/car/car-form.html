@@ -1,0 +1,80 @@
+<div class='create-car-container'>
+  <form #carAddForm='ngForm' (ngSubmit)='onSubmit()'>
+    <div class='form-group'>
+      <label for='make'>Make</label>
+
+      <!--important thing is that the input name must not be equal to some of class properies-->
+
+      <input
+        #make
+        [(ngModel)]='car.make'
+        type='text'
+        id='make'
+        name='make'
+        placeholder='Make'
+        required />
+    </div>
+
+    <div class='form-group'>
+      <label for='model'>Model</label>
+      <input
+        #model
+        [(ngModel)]='car.model'
+        type='text'
+        id='model'
+        name='model'
+        placeholder='Model'
+        required />
+    </div>
+
+    <div class='form-group'>
+      <label for='year'>Year</label>
+      <input
+        #year
+        [(ngModel)]='car.year'
+        type='number'
+        id='year'
+        name='year'
+        placeholder='Year'
+        required />
+    </div>
+
+    <div class='form-group'>
+      <label for='engine'>Engine</label>
+      <input
+        #model
+        [(ngModel)]='car.engine'
+        type='number'
+        id='engine'
+        name='engine'
+        placeholder='Engine'
+        required />
+    </div>
+
+    <div class='form-group'>
+      <label for='owner'>Owner</label>
+      <input
+        #owner
+        [(ngModel)]='car.owner'
+        type='text'
+        id='owner'
+        name='owner'
+        placeholder='Owner'
+        required />
+    </div>
+
+    <div class='form-group'>
+      <label for='image'>Image</label>
+      <input
+        #image
+        [(ngModel)]='car.image'
+        type='text'
+        id='image'
+        name='image'
+        placeholder='Image'
+        required />
+    </div>
+
+    <button type='submit'>Create Car</button>
+  </form>
+</div>

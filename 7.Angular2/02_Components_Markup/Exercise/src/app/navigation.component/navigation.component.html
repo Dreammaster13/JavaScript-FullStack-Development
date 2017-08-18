@@ -1,0 +1,13 @@
+<ul class='planes'>
+  <li *ngFor='let plane of planes'
+      (click)='viewDetails(plane)'
+  >
+    <span class='badge'>{{plane.id}}</span>
+    {{plane.name}}
+  </li>
+
+  <li (click)='hideDetails()'>
+    <span class='badge'>*</span>
+    Hide details component
+  </li>
+</ul>
